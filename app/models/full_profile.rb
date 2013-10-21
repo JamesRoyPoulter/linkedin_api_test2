@@ -5,4 +5,6 @@ class FullProfile < ActiveRecord::Base
 
   has_many :educations
   has_many :positions
+  has_many :skills
+
 end

@@ -8,6 +8,11 @@
           %p= @basic_profile.summary
   .span4
     .well
+      %h5 Skills
+      - @skills.each do |s|
+        %p= s.skill
+  .span3
+    .well
       %h5 Interests
       %p= @full_profile.interests
       %br
@@ -30,12 +35,12 @@
         %th End Date
       - @positions.each do |p|
         %tr
-          %th= p.title
-          %th= p.summary
-          %th= p.company
-          %th= p.is_current
-          %th= p.start_date
-          %th= p.end_date
+          %td= p.title
+          %td= p.summary
+          %td= p.company
+          %td= p.is_current
+          %td= p.start_date
+          %td= p.end_date
 .row{:style => "margin-top: 16px;"}
   .span10
     %h1 Educations
@@ -50,10 +55,10 @@
         %th End Date
       - @educations.each do |e|
         %tr
-          %th= e.school_name
-          %th= e.field_of_study
-          %th= e.degree
-          %th= e.activities
-          %th= e.notes
-          %th= e.start_date
-          %th= e.end_date
+          %td= e.school_name
+          %td= e.field_of_study
+          %td= e.degree
+          %td= e.activities
+          %td= e.notes
+          %td= e.start_date
+          %td= e.end_date

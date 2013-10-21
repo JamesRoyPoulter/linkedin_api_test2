@@ -19,6 +19,7 @@ class LinkedinController < ApplicationController
     @full_profile = get_full_profile
     @positions = get_positions
     @educations = get_educations
+    @skills = get_skills
   end
 
   def oauth_account
@@ -136,6 +137,22 @@ class LinkedinController < ApplicationController
       current_user.full_profile.educations
     else
       educations
+    end
+  end
+
+  def get_skills
+    skills = Skill.find_all_by_full_profile_id(current_user.full_profile.id)
+    if skills.empty?
+      client = get_client
+      skills = client.profile(:fields => [:skills]).skills.all
+      skills.each do |s|
+        new_skills = Skill.create(
+          skill: s.skill[:name],
+          full_profile_id: current_user.full_profile.id)
+      end
+      current_user.full_profile.skills
+    else
+      skills
     end
   end
 

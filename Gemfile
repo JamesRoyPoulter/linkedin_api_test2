@@ -13,6 +13,7 @@ gem 'omniauth'
 gem 'omniauth-linkedin-oauth2'
 gem 'linkedin'
 
+gem 'ransack'
 
 gem 'momentjs-rails'
 gem 'underscore-rails'
