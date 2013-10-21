@@ -1,0 +1,36 @@
+
+<iframe src="https://www.google.com/calendar/embed?src=ip1daa5o5n9iaurfnv3e634658%40group.calendar.google.com&ctz=Europe/London" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+
+<div class="clndr-grid">
+  <div class="days-of-the-week clearfix">
+    <% _.each(daysOfTheWeek, function(day) { %>
+      <div class="header-day"><%= day %></div>
+    <% }); %>
+  </div>
+  <div class="days clearfix">
+    <% _.each(days, function(day) { %>
+      <div class="<%= day.classes %>" id="<%= day.id %>">
+        <span class="day-number"><%= day.day %></span>
+      </div>
+    <% }); %>
+  </div>
+</div>
+<div class="event-listing">
+  <div class="event-listing-title">EVENTS THIS MONTH</div>
+  <% _.each(eventsThisMonth, function(event) { %>
+      <div class="event-item">
+        <div class="event-item-name"><%= event.name %></div>
+        <div class="event-item-location"><%= event.location %></div>
+      </div>
+    <% }); %>
+</div>
+
+
+<div id="calendar"></div>
+
+<iframe src="https://calendar.zoho.com/embed/8f90cb2930086c9f7ec9057a3f3a14a772917dcfd5c262429cc71ef51bb13af24a64100d17cdc3bb?title=james&type=1&l=en&tz=Europe/London&sh=[0,0]&v=1" width="600" height="500" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.zoho.com/eventreqForm/8f90cb2930086c9f7ec9057a3f3a14a772917dcfd5c262429cc71ef51bb13af24a64100d17cdc3bb?theme=0&l=en"  frameborder="0" scrolling="no" marginWidth="0" border="0px" marginHeight="0" height="300px" width="432px" allowTransparency="true" align="center"></iframe>
+
+<br>

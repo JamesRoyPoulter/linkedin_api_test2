@@ -1,0 +1,59 @@
+.row
+  .span4
+    .thumbnail
+      %img{:src => @basic_profile.picture_url, :style => "float: left;margin: 5px;"}
+        %h3= @basic_profile.formatted_name
+        %h4= @basic_profile.headline
+        %br
+          %p= @basic_profile.summary
+  .span4
+    .well
+      %h5 Interests
+      %p= @full_profile.interests
+      %br
+        %h5 Associations
+        %p= @full_profile.associations
+        %br
+          %h5 Honors
+          %p= @full_profile.honors
+          %br
+.row{:style => "margin-top: 16px;"}
+  .span10
+    %h1 Positions
+    %table.table.table-striped
+      %tr
+        %th Title
+        %th Summary
+        %th Company Name
+        %th Is Current
+        %th Start Date
+        %th End Date
+      - @positions.each do |p|
+        %tr
+          %th= p.title
+          %th= p.summary
+          %th= p.company
+          %th= p.is_current
+          %th= p.start_date
+          %th= p.end_date
+.row{:style => "margin-top: 16px;"}
+  .span10
+    %h1 Educations
+    %table.table.table-striped
+      %tr
+        %th School Name
+        %th Field of Study
+        %th Degree
+        %th Activities
+        %th Notes
+        %th Start Date
+        %th End Date
+      - @educations.each do |e|
+        %tr
+          %th= e.school_name
+          %th= e.field_of_study
+          %th= e.degree
+          %th= e.activities
+          %th= e.notes
+          %th= e.start_date
+          %th= e.end_date

@@ -9,7 +9,16 @@ gem 'sqlite3'
 
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-linkedin-oauth2'
 gem 'linkedin'
+
+
+gem 'momentjs-rails'
+gem 'underscore-rails'
+gem 'haml-rails'
+
+
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
