@@ -10,6 +10,11 @@ RsgLinkedinGem::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
+  resources :users do
+    match 'advanced_search' => 'users#advanced_search',
+          on: :collection, via: [:get, :post], as: :advanced_search
+  end
+
   root :to => 'linkedin#index'
 
 end

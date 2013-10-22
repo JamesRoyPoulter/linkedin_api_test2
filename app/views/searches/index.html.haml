@@ -1,5 +1,12 @@
 %h1 Skill search
 
+= search_form_for @q, url: advanced_search_users_path, html: {:method => :post} do |f|
+  %p
+    = f.label :email_cont
+    = f.text_field :email_cont
+  %p
+    = f.submit
+
 %table
   %tr
     %th First header

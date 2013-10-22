@@ -6,6 +6,9 @@ class SearchesController < ApplicationController
     @users = User.all
     # binding.pry
 
+    @q = User.search(params[:q])
+    @users_from_search = @q.result(:distinct => true)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @searches }
