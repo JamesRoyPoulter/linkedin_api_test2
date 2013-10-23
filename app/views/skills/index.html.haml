@@ -12,12 +12,6 @@
     %th First header
     %th Second header
     %th Third header
-
-  - @searches.each do |search|
-    %tr
-      %td= link_to 'Show', search
-      %td= link_to 'Edit', edit_search_path(search)
-      %td= link_to 'Destroy', search, :method => :delete, :data => { :confirm => 'Are you sure?' }
   - @users.each do |user|
     %tr
       %td= user.email
@@ -27,4 +21,5 @@
 
 %br
 
-= link_to 'New Search', new_search_path
+
+= render 'results'

@@ -1,0 +1,16 @@
+/ %p=  @users.to_sql
+%h2 Your first 10 results
+%table
+  %thead
+    %th= sort_link @q, :id, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :first_name, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :last_name, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :email, {}, :method => action_name == 'advanced_search' ? :post : :get
+  %tbody
+    - @skills.limit(2).each do |skill|
+      - binding.pry
+      %tr
+        %td= skill.id
+        %td= skill.skill
+        %td= skill.full_profile.user.email
+        %td= skill.full_profile.user.basic_profile.formatted_name
