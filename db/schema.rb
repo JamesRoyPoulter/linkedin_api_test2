@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131021124920) do
+ActiveRecord::Schema.define(:version => 20131024111141) do
 
   create_table "basic_profiles", :force => true do |t|
     t.string   "first_name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20131021124920) do
     t.string   "headline"
     t.string   "location"
     t.string   "industry"
-    t.string   "summary"
+    t.text     "summary"
     t.string   "specialties"
     t.string   "picture_url"
     t.string   "public_profile_url"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20131021124920) do
     t.date     "end_date"
     t.string   "degree"
     t.string   "activities"
-    t.string   "notes"
+    t.text     "notes"
     t.integer  "full_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20131021124920) do
 
   create_table "positions", :force => true do |t|
     t.string   "title"
-    t.string   "summary"
+    t.text     "summary"
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "is_current"
