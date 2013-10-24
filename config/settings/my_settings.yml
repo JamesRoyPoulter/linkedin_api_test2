@@ -1,0 +1,12 @@
+defaults: &defaults
+  api_key: z7jq2f15zumw
+  secret_key: LOxanysGV6qs9qlJ
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

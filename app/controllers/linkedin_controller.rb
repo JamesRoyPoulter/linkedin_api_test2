@@ -23,7 +23,7 @@ class LinkedinController < ApplicationController
   end
 
   def oauth_account
-    client = LinkedIn::Client.new('z7jq2f15zumw', 'LOxanysGV6qs9qlJ', @@config)
+    client = LinkedIn::Client.new(MySettings.api_key, MySettings.secret_key, @@config)
     pin = params[:oauth_verifier]
     if pin
       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
@@ -34,7 +34,7 @@ class LinkedinController < ApplicationController
 
   def generate_linkedin_oauth_url
     if LinkedinOauthSetting.find_by_user_id(current_user.id).nil?
-      client = LinkedIn::Client.new('z7jq2f15zumw', 'LOxanysGV6qs9qlJ', @@config)
+      client = LinkedIn::Client.new(MySettings.api_key, MySettings.secret_key, @@config)
       request_token = client.request_token(:oauth_callback => "http://#{request.host}:#{request.port}/oauth_account")
       session[:rtoken] = request_token.token
       session[:rsecret] = request_token.secret
@@ -48,7 +48,7 @@ class LinkedinController < ApplicationController
 
   def get_client
     linkedin_oauth_setting = LinkedinOauthSetting.find_by_user_id(current_user.id)
-    client = LinkedIn::Client.new('z7jq2f15zumw', 'LOxanysGV6qs9qlJ', @@config)
+    client = LinkedIn::Client.new(MySettings.api_key, MySettings.secret_key, @@config)
     client.authorize_from_access(linkedin_oauth_setting.atoken, linkedin_oauth_setting.asecret)
     client
   end
