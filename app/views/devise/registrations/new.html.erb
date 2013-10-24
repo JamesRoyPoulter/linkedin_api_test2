@@ -13,6 +13,8 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.submit "Sign up" %></div>
+
+  <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

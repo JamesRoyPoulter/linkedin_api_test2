@@ -2,6 +2,10 @@ to tidy up:
 
 1) one linked in sign in
 
-2) hide api keys
-
 3) current_user access to mentor search
+
+4) try and build a fb oauth app
+
+5) add in linkedin access
+
+6) pull all data down yolo.
