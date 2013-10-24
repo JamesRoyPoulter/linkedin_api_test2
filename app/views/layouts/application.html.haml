@@ -40,6 +40,8 @@
           %a.brand{:href => "#"} Warner Yard
           .container.nav-collapse
             %ul.nav
+              - if current_user && current_user.mentor_search
+                link_to_mentor_search
               %li= link_to "Sign out", "/users/sign_out", :method => "DELETE"
           / /.nav-collapse
     .container

@@ -6,6 +6,7 @@
     %th= sort_link @q, :first_name, {}, :method => action_name == 'advanced_search' ? :post : :get
     %th= sort_link @q, :last_name, {}, :method => action_name == 'advanced_search' ? :post : :get
     %th= sort_link @q, :email, {}, :method => action_name == 'advanced_search' ? :post : :get
+
   %tbody
     - @skills.limit(5).each do |skill|
       %tr
