@@ -12,6 +12,9 @@ to tidy up:
 
 7) pull down the numebr of connections from the linkedin api, and pull down the profile url
 
+9) js split skills search to browse/
+
+10) on clicking someone's name display the show profile page for that user
 
 
 - # twitter_followers

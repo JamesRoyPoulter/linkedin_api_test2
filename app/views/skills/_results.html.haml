@@ -1,5 +1,5 @@
 / %p=  @users.to_sql
-%h2 Your first 10 results
+%h4 Your first 10 results
 %table
   %thead
     %th= sort_link @q, :id, {}, :method => action_name == 'advanced_search' ? :post : :get

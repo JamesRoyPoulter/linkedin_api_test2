@@ -1,5 +1,5 @@
 .row
-  .span4
+  .span12
     .thumbnail
       %img{:src => @basic_profile.picture_url, :style => "float: left;margin: 5px;"}
         %h3= @basic_profile.formatted_name
@@ -7,61 +7,101 @@
         %br
           %p= 'Location: ' + @basic_profile.location
           %p= @basic_profile.summary
-  .span4
-    .well
-      %h5 Skills
-      - @skills.each do |s|
-        = s.skill
-        = ","
-  .span4
-    .well
-      %h5 Interests
-      %p= @full_profile.interests
-      %br
-        %h5 Linkedin URL
-        %p= @basic_profile.public_profile_url
+- binding.pry
+.row{:style => "margin-top: 16px;"}
+  - if current_user.mentor_profile==true
+    .span4
+      .well
+        %h5 Skills
+        - @skills.each do |s|
+          = s.skill
+          = ","
+    .span4
+      .well
+        %h5 Interests
+        %p= @full_profile.interests
         %br
-          %h5 Connections
-          = @basic_profile.num_connections
-          - if @basic_profile.num_connections == 500
-            = '+'
-.row{:style => "margin-top: 16px;"}
-  .span10
-    %h1 Positions
-    %table.table.table-striped
-      %tr
-        %th Title
-        %th Summary
-        %th Company Name
-        %th Is Current
-        %th Start Date
-        %th End Date
-      - @positions.each do |p|
-        %tr
-          %td= p.title
-          %td= p.summary
-          %td= p.company
-          %td= p.is_current
-          %td= p.start_date
-          %td= p.end_date
-.row{:style => "margin-top: 16px;"}
-  .span10
-    %h1 Educations
-    %table.table.table-striped
-      %tr
-        %th School Name
-        %th Field of Study
-        %th Degree
-        %th Activities
-        %th Notes
-        %th Start Date
-        %th End Date
-      - @educations.each do |e|
-        %tr
-          %td= e.school_name
-          %td= e.field_of_study
-          %td= e.degree
-          %td= e.activities
-          %td= e.notes
-          %td= e.start_date
-          %td= e.end_date
+          %h5 Linkedin URL
+          %a.wordwrap_me= @basic_profile.public_profile_url
+          %br
+            %h5 Connections
+            = @basic_profile.num_connections
+            - if @basic_profile.num_connections == 500
+              = '+'
+    .span4
+      .well
+        %h5 Mentor Stats
+        %table.table
+          %tr
+            %td Angelist followers:
+            %td
+              = current_user.mentor_profile.num_angelist_followers
+          %tr
+            %td Twitter followers:
+            %td
+              = current_user.mentor_profile.num_twitter_followers
+          %tr
+            %td Mentor ranking:
+            %td
+              = current_user.mentor_profile.mentor_ranking
+  - else
+    .span6
+      .well
+        %h5 Skills
+        - @skills.each do |s|
+          = s.skill
+          = ","
+    .span6
+      .well
+        %h5 Interests
+        %p= @full_profile.interests
+        %br
+          %h5 Linkedin URL
+          %a.wordwrap_me= @basic_profile.public_profile_url
+          %br
+            %h5 Connections
+            = @basic_profile.num_connections
+            - if @basic_profile.num_connections == 500
+              = '+'
+
+
+/ .row{:style => "margin-top: 16px;"}
+/   .span10
+/     %h1 Positions
+/     %table.table.table-striped
+/       %tr
+/         %th Title
+/         %th Summary
+/         %th Company Name
+/         %th Is Current
+/         %th Start Date
+/         %th End Date
+/       - @positions.each do |p|
+/         %tr
+/           %td= p.title
+/           %td= p.summary
+/           %td= p.company
+/           %td= p.is_current
+/           %td= p.start_date
+/           %td= p.end_date
+/ .row{:style => "margin-top: 16px;"}
+/   .span10
+/     %h1 Educations
+/     %table.table.table-striped
+/       %tr
+/         %th School Name
+/         %th Field of Study
+/         %th Degree
+/         %th Activities
+/         %th Notes
+/         %th Start Date
+/         %th End Date
+/       - @educations.each do |e|
+/         %tr
+/           %td= e.school_name
+/           %td= e.field_of_study
+/           %td= e.degree
+/           %td= e.activities
+/           %td= e.notes
+/           %td= e.start_date
+/           %td= e.end_date

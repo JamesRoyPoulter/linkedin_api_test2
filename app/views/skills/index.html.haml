@@ -1,25 +1,30 @@
-%h1 Skill search
-
-= search_form_for @q do |f|
-  %p
-    = f.label :skill_cont
-    = f.text_field :skill_cont
-  %p
-    = f.submit
-
-%table
-  %tr
-    %th First header
-    %th Second header
-    %th Third header
-  - @users.each do |user|
-    %tr
-      %td= user.email
-      %td
-        - user.full_profile.skills.each do |skill|
-          = skill[:skill]
+.span5#browse_title
+  %h2 Browse
+.span5#search_title
+  %h2 Search
 
 %br
 
+#browse_content
+  %table.table
+    %tr
+      %th Name
+      %th Skills
+    - @users.each do |user|
+      %tr
+        %td= user.basic_profile.formatted_name
+        %td
+          - user.full_profile.skills.each do |skill|
+            = skill[:skill] + ','
 
-= render 'results'
+#search_content
+
+  = search_form_for @q do |f|
+    %p
+      = f.label :skill_cont
+      = f.text_field :skill_cont
+    %p
+      = f.submit
+
+
+  = render 'results'

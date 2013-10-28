@@ -20,6 +20,7 @@ class LinkedinController < ApplicationController
     @positions = get_positions
     @educations = get_educations
     @skills = get_skills
+    create_mentor_profile
   end
 
   def oauth_account
@@ -154,6 +155,12 @@ class LinkedinController < ApplicationController
     else
       skills
     end
+  end
+
+  def create_mentor_profile
+    mentor_profile = MentorProfile.new
+    mentor_profile.user_id = current_user.id
+    mentor_profile.save
   end
 
 end
