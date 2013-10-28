@@ -1,0 +1,20 @@
+#browse_title
+  %h2 Browse
+
+#browse_content
+  %table.table
+    %colgroup
+      %col.span3
+      %col.span3
+      %col.span6
+    %tr
+      %th Name
+      %th Company
+      %th Skills
+    - @users.each do |user|
+      %tr
+        %td= user.basic_profile.formatted_name
+        %td= user.full_profile.positions.first.company
+        %td
+          - user.full_profile.skills.each do |skill|
+            = skill[:skill] + ','

@@ -23,6 +23,8 @@ class LinkedinController < ApplicationController
     create_mentor_profile
   end
 
+
+
   def oauth_account
     client = LinkedIn::Client.new(MySettings.api_key, MySettings.secret_key, @@config)
     pin = params[:oauth_verifier]

@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+before_filter :authenticate_user!
+
 
 def index
 
@@ -9,9 +11,8 @@ def index
 
 end
 
-def search
-  index
-  render :index
+def browse
+  @users = User.all
 end
 
 

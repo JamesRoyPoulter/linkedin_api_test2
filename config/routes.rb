@@ -1,6 +1,7 @@
 RsgLinkedinGem::Application.routes.draw do
 
   resources :skills
+  match '/browse' => 'skills#browse'
 
   resources :linkedin
 

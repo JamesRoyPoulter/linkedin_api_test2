@@ -37,12 +37,13 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "/"} Warner Yard
+          %a.brand{:href => "/"} WY Skillz
           .container.nav-collapse
             %ul.nav
               - if current_user && current_user.mentor_search
                 link_to_mentor_search
-              %li= link_to "Skills Database", skills_path
+              %li= link_to "Search", skills_path
+              %li= link_to "Browse", browse_path
               %li= link_to "Sign out", "/users/sign_out", :method => "DELETE"
           / /.nav-collapse
     .container

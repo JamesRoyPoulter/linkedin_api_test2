@@ -16,6 +16,13 @@ to tidy up:
 
 10) on clicking someone's name display the show profile page for that user
 
+11) one click add all people in warner yard
+
+12) column sort
+
+13) add mobile and email
+
+14) table widths
 
 - # twitter_followers
 - # angelist_followers

@@ -7,9 +7,9 @@
         %br
           %p= 'Location: ' + @basic_profile.location
           %p= @basic_profile.summary
-- binding.pry
+
 .row{:style => "margin-top: 16px;"}
-  - if current_user.mentor_profile==true
+  - if current_user.mentor_search==true
     .span4
       .well
         %h5 Skills

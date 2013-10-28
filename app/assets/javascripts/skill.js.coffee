@@ -9,3 +9,6 @@ $('#browse_title').click ()->
 $('#search_title').click ()->
   $('#search_content').show()
   $('#browse_content').hide()
+
+$('#display_results').click ()->
+  $('search_results').show()

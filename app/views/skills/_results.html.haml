@@ -1,16 +1,15 @@
 / %p=  @users.to_sql
-%h4 Your first 10 results
-%table
+%table.table
   %thead
-    %th= sort_link @q, :id, {}, :method => action_name == 'advanced_search' ? :post : :get
-    %th= sort_link @q, :first_name, {}, :method => action_name == 'advanced_search' ? :post : :get
-    %th= sort_link @q, :last_name, {}, :method => action_name == 'advanced_search' ? :post : :get
-    %th= sort_link @q, :email, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :formatted_name, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :company, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
 
   %tbody
-    - @skills.limit(5).each do |skill|
+    - @skills.each do |skill|
       %tr
-        %td= skill.id
-        %td= skill.skill
-        %td= skill.full_profile.user.email
         %td= skill.full_profile.user.basic_profile.formatted_name
+        %td= skill.full_profile.positions.first.company
+        %td
+          - skill.full_profile.skills.each do |skill|
+            = skill[:skill] + ','
