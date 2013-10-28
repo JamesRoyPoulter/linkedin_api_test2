@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_one :basic_profile
   has_one :full_profile
   has_one :linkedin_oauth_setting
+  has_one :mentor_profile
 
   def self.find_for_linkedin_oauth2(access_token, signed_in_resource=nil)
       data = access_token.info

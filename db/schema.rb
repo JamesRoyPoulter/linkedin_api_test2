@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024134938) do
+ActiveRecord::Schema.define(:version => 20131028122127) do
 
   create_table "basic_profiles", :force => true do |t|
     t.string   "first_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20131024134938) do
     t.integer  "user_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "num_connections"
   end
 
   create_table "educations", :force => true do |t|
@@ -58,6 +59,15 @@ ActiveRecord::Schema.define(:version => 20131024134938) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "mentor_profiles", :force => true do |t|
+    t.integer  "num_twitter_followers"
+    t.integer  "num_angelist_followers"
+    t.integer  "mentor_ranking"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.integer  "user_id"
   end
 
   create_table "positions", :force => true do |t|

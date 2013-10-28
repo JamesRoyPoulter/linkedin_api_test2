@@ -5,23 +5,26 @@
         %h3= @basic_profile.formatted_name
         %h4= @basic_profile.headline
         %br
+          %p= 'Location: ' + @basic_profile.location
           %p= @basic_profile.summary
   .span4
     .well
       %h5 Skills
       - @skills.each do |s|
-        %p= s.skill
-  .span3
+        = s.skill
+        = ","
+  .span4
     .well
       %h5 Interests
       %p= @full_profile.interests
       %br
-        %h5 Associations
-        %p= @full_profile.associations
+        %h5 Linkedin URL
+        %p= @basic_profile.public_profile_url
         %br
-          %h5 Honors
-          %p= @full_profile.honors
-          %br
+          %h5 Connections
+          = @basic_profile.num_connections
+          - if @basic_profile.num_connections == 500
+            = '+'
 .row{:style => "margin-top: 16px;"}
   .span10
     %h1 Positions

@@ -2,10 +2,41 @@ to tidy up:
 
 1) one linked in sign in
 
-3) current_user access to mentor search
+3) current_user access to mentor search - this should work, current_user.mentor_search t/f. just needs to be rolled out across site.
 
 4) try and build a fb oauth app
 
 5) add in linkedin access
 
 6) pull all data down yolo.
+
+7) pull down the numebr of connections from the linkedin api, and pull down the profile url
+
+
+
+- # twitter_followers
+- # angelist_followers
+- mentor_ranking
+
+linkedin api:
+- name
+- public-profile-url
+- num-connections
+- location
+- educations (and for each one):
+  - activities
+  - degree
+  - end_date
+  - field_of_study
+  - notes
+  - school_name
+  - start_date
+- positions (and for each one):
+  - company
+  - end_date
+  - is_current
+  - start_date
+  - summary
+  - title
+- skills (and for each one):
+  - name

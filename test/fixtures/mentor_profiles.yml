@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  num_twitter_followers: 1
+  num_angelist_followers: 1
+  mentor_ranking: 1
+
+two:
+  num_twitter_followers: 1
+  num_angelist_followers: 1
+  mentor_ranking: 1
