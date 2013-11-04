@@ -18,6 +18,7 @@
 }
 
 .wordwrap_me {
+  font-family: Open Sans, Helvetica;
  -ms-word-break: break-all;
      word-break: break-all;
 

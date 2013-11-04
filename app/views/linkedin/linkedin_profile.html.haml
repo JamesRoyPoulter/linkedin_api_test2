@@ -13,21 +13,22 @@
     .span4
       .well
         %h5 Skills
-        - @skills.each do |s|
-          = s.skill
-          = ","
+        .makeopensans
+          - @skills.each do |s|
+            = s.skill
+            = ","
     .span4
       .well
         %h5 Interests
         %p= @full_profile.interests
+        %h5 Linkedin URL
+        %a.wordwrap_me= @basic_profile.public_profile_url
         %br
-          %h5 Linkedin URL
-          %a.wordwrap_me= @basic_profile.public_profile_url
-          %br
-            %h5 Connections
-            = @basic_profile.num_connections
-            - if @basic_profile.num_connections == 500
-              = '+'
+        %h5 Connections
+        %p
+          = @basic_profile.num_connections
+          - if @basic_profile.num_connections == 500
+            = '+'
     .span4
       .well
         %h5 Mentor Stats
@@ -48,21 +49,22 @@
     .span6
       .well
         %h5 Skills
-        - @skills.each do |s|
-          = s.skill
-          = ","
+        .makeopensans
+          - @skills.each do |s|
+            = s.skill
+            = ","
     .span6
       .well
         %h5 Interests
         %p= @full_profile.interests
+        %h5 Linkedin URL
+        %a.wordwrap_me= @basic_profile.public_profile_url
         %br
-          %h5 Linkedin URL
-          %a.wordwrap_me= @basic_profile.public_profile_url
-          %br
-            %h5 Connections
-            = @basic_profile.num_connections
-            - if @basic_profile.num_connections == 500
-              = '+'
+        %h5 Connections
+        %p
+          = @basic_profile.num_connections
+          - if @basic_profile.num_connections == 500
+            = '+'
 
 
 / .row{:style => "margin-top: 16px;"}

@@ -6,7 +6,7 @@
     %th= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
 
   %tbody
-    - @skills.each do |skill|
+    - @skills.limit(5).each do |skill|
       %tr
         %td= skill.full_profile.user.basic_profile.formatted_name
         %td= skill.full_profile.positions.first.company

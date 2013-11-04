@@ -24,6 +24,10 @@ to tidy up:
 
 14) table widths
 
+15) stop thousands of searches
+
+16) link to profile
+
 - # twitter_followers
 - # angelist_followers
 - mentor_ranking
