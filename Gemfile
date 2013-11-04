@@ -9,6 +9,7 @@ gem 'pg'
 
 gem 'newrelic_rpm'
 gem 'settingslogic'
+gem 'rails_12factor'
 
 gem 'devise'
 gem 'omniauth'

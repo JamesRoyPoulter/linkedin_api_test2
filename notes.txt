@@ -32,6 +32,8 @@ to tidy up:
 
 18)   <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div> from devise/reigstrations/new
 
+also with 18). in the _shared
+
 - # twitter_followers
 - # angelist_followers
 - mentor_ranking

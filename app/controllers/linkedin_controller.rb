@@ -149,6 +149,7 @@ class LinkedinController < ApplicationController
     skills = Skill.find_all_by_full_profile_id(current_user.full_profile.id)
     if skills.empty?
       client = get_client
+      binding.pry
       skills = client.profile(:fields => [:skills]).skills.all
       skills.each do |s|
         new_skills = Skill.create(
