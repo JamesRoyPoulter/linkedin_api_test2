@@ -1,19 +1,18 @@
 class SkillsController < ApplicationController
-before_filter :authenticate_user!
 
+  before_filter :authenticate_user!
 
-def index
+  def index
 
-  @users = User.all
+    @users = User.all
 
-  @q = Skill.search(params[:q])
-  @skills = @q.result(:distinct => true)
+    @q = Skill.search(params[:q])
+    @skills = @q.result(:distinct => true)
 
-end
+  end
 
-def browse
-  @users = User.all
-end
-
+  def browse
+    @users = User.all
+  end
 
 end

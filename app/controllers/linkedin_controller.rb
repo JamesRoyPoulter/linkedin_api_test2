@@ -23,7 +23,9 @@ class LinkedinController < ApplicationController
     create_mentor_profile
   end
 
-
+  def linkedin_profile_show
+    @basic_profile = BasicProfile.find(params[:id])
+  end
 
   def oauth_account
     client = LinkedIn::Client.new(MySettings.api_key, MySettings.secret_key, @@config)

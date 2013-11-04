@@ -13,7 +13,7 @@
       %th Skills
     - @users.each do |user|
       %tr
-        %td= user.basic_profile.formatted_name
+        %td= link_to user.basic_profile.formatted_name, show_profile_path(current_user)
         %td= user.full_profile.positions.first.company
         %td
           - user.full_profile.skills.each do |skill|
