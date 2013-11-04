@@ -8,8 +8,12 @@
   %tbody
     - @skills.limit(5).each do |skill|
       %tr
-        %td= skill.full_profile.user.basic_profile.formatted_name
+        %td= link_to(skill.full_profile.user.basic_profile.formatted_name, html_options = {:action => 'show', :id => current_user.id})
+
         %td= skill.full_profile.positions.first.company
         %td
           - skill.full_profile.skills.each do |skill|
             = skill[:skill] + ','
+
+
+/ # = skill.full_profile.user.basic_profile.formatted_name

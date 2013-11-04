@@ -12,7 +12,3 @@ $('#search_title').click ()->
 
 $('#display_results').click ()->
   $('search_results').show()
-
-
-$('td').click ()->
-     window.location = "http://www.google.com/"
