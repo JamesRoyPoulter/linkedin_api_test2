@@ -13,7 +13,7 @@
       %th Skills
     - @users.each do |user|
       %tr
-        %td= link_to(skill.full_profile.user.basic_profile.formatted_name, html_options = {:action => 'show', :id => current_user.id})
+        %td= link_to(user.full_profile.user.basic_profile.formatted_name, html_options = {:action => 'show', :id => current_user.id})
         %td= user.full_profile.positions.first.company
         %td
           - user.full_profile.skills.each do |skill|

@@ -26,7 +26,7 @@ to tidy up:
 
 15) stop thousands of searches
 
-16) link to profile, need to link to individual user and pull all data associated with. dont do it through linkedin, do it through just accessing user.
+16) link to profile, need to link to individual user and pull all data associated with. dont do it through linkedin, do it through just accessing user. and filling fields basically. don't overcomplicate.
 
 - # twitter_followers
 - # angelist_followers
