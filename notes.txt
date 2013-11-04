@@ -28,6 +28,10 @@ to tidy up:
 
 16) link to profile, need to link to individual user and pull all data associated with. dont do it through linkedin, do it through just accessing user. and filling fields basically. don't overcomplicate.
 
+17) rails_12factor gem
+
+18)   <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div> from devise/reigstrations/new
+
 - # twitter_followers
 - # angelist_followers
 - mentor_ranking
