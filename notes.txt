@@ -11,7 +11,7 @@ me questions:
 4) try and build a fb oauth app
 10) on clicking someone's name display the show profile page for that user
 11) one click add all people in warner yard
-13) add mobile and email
+13) add mobile and email to prof page view
 14) table widths
 19) need to run rake tast to pull down linkedin info
 20) remove all the started /get in the logs

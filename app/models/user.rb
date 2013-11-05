@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:linkedin_oauth2]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :number
 
   has_one :basic_profile
   has_one :full_profile

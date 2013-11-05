@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028125532) do
+ActiveRecord::Schema.define(:version => 20131105153232) do
 
   create_table "basic_profiles", :force => true do |t|
     t.string   "first_name"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20131028125532) do
     t.string   "uid"
     t.string   "name"
     t.boolean  "mentor_search",          :default => false
+    t.string   "number"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
