@@ -1,36 +1,28 @@
 to tidy up:
 
+india questions:
 1) one linked in sign in
-
-3) ensure mentor/user split
-
-4) try and build a fb oauth app
-
 5) add in linkedin access
+18)   <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div> from devise/reigstrations/new
+19) also with 18). but in the _shared
 
+me questions:
+3) ensure mentor/user split
+4) try and build a fb oauth app
 10) on clicking someone's name display the show profile page for that user
-
 11) one click add all people in warner yard
-
-12) column sort
-
 13) add mobile and email
-
 14) table widths
+19) need to run rake tast to pull down linkedin info
+20) remove all the started /get in the logs
 
+ga questions:
+12) column sort
 15) stop thousands of searches
 
 16) link to profile, need to link to individual user and pull all data associated with. dont do it through linkedin, do it through just accessing user. and filling fields basically. don't overcomplicate.
 
-17) rails_12factor gem
 
-18)   <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div> from devise/reigstrations/new
-
-also with 18). in the _shared
-
-19) need to run rake tast to pull down linkedin info
-
-20) remove all the started /get in the logs
 
 - # twitter_followers
 - # angelist_followers
