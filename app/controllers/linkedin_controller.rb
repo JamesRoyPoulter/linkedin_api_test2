@@ -15,11 +15,13 @@ class LinkedinController < ApplicationController
   end
 
   def linkedin_profile
+
     @basic_profile = get_basic_profile
     @full_profile = get_full_profile
+    @skills = get_skills
     @positions = get_positions
     @educations = get_educations
-    @skills = get_skills
+
     create_mentor_profile
   end
 
@@ -95,28 +97,32 @@ class LinkedinController < ApplicationController
     positions = Position.find_all_by_full_profile_id(current_user.full_profile.id)
     if positions.empty?
       client = get_client
-      positions = client.profile(:fields => [:positions]).positions.all
-      positions.each do |p|
-        if p.is_current == "true"
-          Position.create(
-            title: p.title,
-            summary: p.summary,
-            start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
-            end_date: Date.parse("1/#{p.end_date.month ? p.end_date.month : 1}/#{p.end_date.year}"),
-            is_current: p.is_current,
-            company: p.company.name,
-            full_profile_id: current_user.full_profile.id)
-        else
-          Position.create(
-            title: p.title,
-            summary: p.summary,
-            start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
-            is_current: p.is_current,
-            company: p.company.name,
-            full_profile_id: current_user.full_profile.id)
+      if client.profile(:fields => [:positions]).empty?
+        # add no positions
+      else
+        positions = client.profile(:fields => [:positions]).positions.all
+        positions.each do |p|
+          if p.is_current == true
+            Position.create(
+              title: p.title,
+              summary: p.summary,
+              start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
+              end_date: Date.parse("1/#{p.end_date.month ? p.end_date.month : 1}/#{p.end_date.year}"),
+              is_current: p.is_current,
+              company: p.company.name,
+              full_profile_id: current_user.full_profile.id)
+          else
+            Position.create(
+              title: p.title,
+              summary: p.summary,
+              start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
+              is_current: p.is_current,
+              company: p.company.name,
+              full_profile_id: current_user.full_profile.id)
+          end
         end
+        current_user.full_profile.positions
       end
-      current_user.full_profile.positions
     else
       positions
     end
@@ -149,14 +155,17 @@ class LinkedinController < ApplicationController
     skills = Skill.find_all_by_full_profile_id(current_user.full_profile.id)
     if skills.empty?
       client = get_client
-      binding.pry
-      skills = client.profile(:fields => [:skills]).skills.all
-      skills.each do |s|
-        new_skills = Skill.create(
-          skill: s.skill[:name],
-          full_profile_id: current_user.full_profile.id)
+      if client.profile(:fields => [:skills]).empty?
+        # add no skills
+      else
+        skills = client.profile(:fields => [:skills]).skills.all
+        skills.each do |s|
+          new_skills = Skill.create(
+            skill: s.skill[:name],
+            full_profile_id: current_user.full_profile.id)
+        end
+        current_user.full_profile.skills
       end
-      current_user.full_profile.skills
     else
       skills
     end

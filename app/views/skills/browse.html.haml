@@ -3,14 +3,10 @@
 
 #browse_content
   %table.table
-    %colgroup
-      %col.span3
-      %col.span3
-      %col.span6
     %tr
-      %th Name
-      %th Company
-      %th Skills
+    %th= sort_link @q, :formatted_name, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :company, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
     - @users.each do |user|
       %tr
         %td= link_to(user.full_profile.user.basic_profile.formatted_name, html_options = {:action => 'show', :id => current_user.id})

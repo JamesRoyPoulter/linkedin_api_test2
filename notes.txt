@@ -2,17 +2,11 @@ to tidy up:
 
 1) one linked in sign in
 
-3) current_user access to mentor search - this should work, current_user.mentor_search t/f. just needs to be rolled out across site.
+3) ensure mentor/user split
 
 4) try and build a fb oauth app
 
 5) add in linkedin access
-
-6) pull all data down yolo.
-
-7) pull down the numebr of connections from the linkedin api, and pull down the profile url
-
-9) js split skills search to browse/
 
 10) on clicking someone's name display the show profile page for that user
 
@@ -33,6 +27,10 @@ to tidy up:
 18)   <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div> from devise/reigstrations/new
 
 also with 18). in the _shared
+
+19) need to run rake tast to pull down linkedin info
+
+20) remove all the started /get in the logs
 
 - # twitter_followers
 - # angelist_followers
