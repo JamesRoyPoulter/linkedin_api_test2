@@ -3,8 +3,9 @@ RsgLinkedinGem::Application.routes.draw do
   resources :skills
   match '/browse' => 'skills#browse'
 
-  resources :linkedin
+
   match '/show_profile/:id' => 'linkedin#linkedin_profile_show', as: 'show_profile'
+  resources :linkedin
 
   match '/linkedin_profile' => "linkedin#linkedin_profile"
   match '/oauth_account' => "linkedin#oauth_account"

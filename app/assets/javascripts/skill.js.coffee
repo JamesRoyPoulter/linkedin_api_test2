@@ -12,3 +12,4 @@ $('#search_title').click ()->
 
 $('#display_results').click ()->
   $('search_results').show()
+

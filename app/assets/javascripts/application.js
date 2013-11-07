@@ -1,3 +1,9 @@
+jQuery("body").bind "DOMSubtreeModified", (evt) ->
+  elemento = evt.delegateTarget.lastChild
+  jQuery("#" + elemento.id).remove()  unless elemento.src.indexOf("https://api.linkedin.com") is -1  if elemento.tagName is "IFRAME"
+
+#
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

@@ -50,3 +50,8 @@ linkedin api:
   - title
 - skills (and for each one):
   - name
+
+
+
+
+html_options = {:action => 'show', :id => current_user.id})

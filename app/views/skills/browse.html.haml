@@ -1,15 +1,55 @@
+%script{:src => "http://platform.linkedin.com/in.js", :type => "text/javascript"}
+  api_key: z7jq2f15zumw
+  authorize: true
+
+%script{:type => "in/Login"}
+  Hello, <?js= firstName ?> <?js= lastName ?>.
+
+:javascript
+  function invite() {
+      var url = '/people/~/mailbox',
+          body = {
+              recipients: {
+                values: [{
+                  person: {
+                    _path: '/people/email=a_user@domain.com',
+                    'first-name':'Andrew',
+                    'last-name':'User'
+                   }
+                }]
+              },
+              subject: 'Invitation to connect.',
+              body: 'Say yes!',
+              'item-content':{
+                   'invitation-request':{
+                       'connect-type':'friend'
+                   }
+              }
+          };
+      IN.API.Raw()
+          .url(url)
+          .method("POST")
+          .body(JSON.stringify(body))
+          .result(function (result) {
+              console.log(result);
+          })
+          .error(function (error) {
+              console.log(error);
+          });
+  }
+
 #browse_title
   %h2 Browse
 
 #browse_content
   %table.table
     %tr
-    %th= sort_link @q, :formatted_name, {}, :method => action_name == 'advanced_search' ? :post : :get
-    %th= sort_link @q, :company, {}, :method => action_name == 'advanced_search' ? :post : :get
-    %th= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th.table_name= sort_link @q, :formatted_name, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th.table_company= sort_link @q, :company, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th.table_skills= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
     - @users.each do |user|
       %tr
-        %td= link_to(user.full_profile.user.basic_profile.formatted_name, html_options = {:action => 'show', :id => current_user.id})
+        %td= link_to user.full_profile.user.basic_profile.formatted_name, skills_path
         %td= user.full_profile.positions.first.company
         %td
           - user.full_profile.skills.each do |skill|
