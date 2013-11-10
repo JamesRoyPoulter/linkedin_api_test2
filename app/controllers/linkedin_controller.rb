@@ -95,27 +95,34 @@ class LinkedinController < ApplicationController
 
   def get_positions
     positions = Position.find_all_by_full_profile_id(current_user.full_profile.id)
+
+    # check whether there is currently any positions for the user
     if positions.empty?
       client = get_client
-      if client.profile(:fields => [:positions]).empty?
-        # add no positions
+
+      # check if the user has any positions on linkedin
+      if client.profile(:fields => [:positions]).positions.total == 0
+        positions
       else
         positions = client.profile(:fields => [:positions]).positions.all
         positions.each do |p|
+
+          # get user current position, then previous positions
           if p.is_current == true
             Position.create(
-              title: p.title,
-              summary: p.summary,
+              title: guard(p.title),
+              summary: guard(p.summary),
               start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
               end_date: Date.parse("1/#{p.end_date.month ? p.end_date.month : 1}/#{p.end_date.year}"),
               is_current: p.is_current,
               company: p.company.name,
               full_profile_id: current_user.full_profile.id)
+          # previous positions
           else
             Position.create(
               title: p.title,
               summary: p.summary,
-              start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
+              start_date: Date.parse("1/#{guard(p.start_date).month ? guard(p.start_date).month : 1}/#{guard(p.start_date).year}"),
               is_current: p.is_current,
               company: p.company.name,
               full_profile_id: current_user.full_profile.id)
@@ -123,6 +130,7 @@ class LinkedinController < ApplicationController
         end
         current_user.full_profile.positions
       end
+
     else
       positions
     end
@@ -133,6 +141,8 @@ class LinkedinController < ApplicationController
     educations = Education.find_all_by_full_profile_id(current_user.full_profile.id)
     if educations.empty?
       client = get_client
+
+
       educations = client.profile(:fields => [:educations]).educations.all
       educations.each do |e|
         new_educations = Education.create(
@@ -175,6 +185,16 @@ class LinkedinController < ApplicationController
     mentor_profile = MentorProfile.new
     mentor_profile.user_id = current_user.id
     mentor_profile.save
+  end
+
+  # helper
+
+  def guard(protect)
+    if protect!=nil
+      protect
+    else
+      ''
+    end
   end
 
 end
