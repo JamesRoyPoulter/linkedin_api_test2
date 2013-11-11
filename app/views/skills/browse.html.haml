@@ -16,5 +16,5 @@
           %p= user.full_profile.positions.first.company
           %p= user.email
         %td.better_font
-          - user.full_profile.skills.each do |skill|
+          - user.full_profile.skills.sort_by{|x| x.skill}.each do |skill|
             = skill[:skill] + ','
