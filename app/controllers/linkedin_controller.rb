@@ -97,7 +97,7 @@ class LinkedinController < ApplicationController
     positions = Position.find_all_by_full_profile_id(current_user.full_profile.id)
 
     # check whether there is currently any positions for the user
-    if positions.empty?
+    # if positions.empty?
       client = get_client
 
       # check if the user has any positions on linkedin
@@ -109,61 +109,78 @@ class LinkedinController < ApplicationController
 
           # get user current position, then previous positions
           if p.is_current == true
-            Position.create(
+            new_position = Position.new(
               title: guard(p.title),
               summary: guard(p.summary),
-              start_date: Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}"),
-              end_date: Date.parse("1/#{p.end_date.month ? p.end_date.month : 1}/#{p.end_date.year}"),
               is_current: p.is_current,
-              company: p.company.name,
+              company: guard(p.company.name),
+              end_date: Date.current,
               full_profile_id: current_user.full_profile.id)
+
+            # start_date separated incase it doesn't exist
+            new_position.start_date != nil && new_position.start_date = Date.parse("1/#{p.start_date.month ? p.start_date.month : 1}/#{p.start_date.year}")
+            new_position.save
+
           # previous positions
           else
-            Position.create(
+            old_position = Position.new(
               title: p.title,
               summary: p.summary,
-              start_date: Date.parse("1/#{guard(p.start_date).month ? guard(p.start_date).month : 1}/#{guard(p.start_date).year}"),
               is_current: p.is_current,
               company: p.company.name,
               full_profile_id: current_user.full_profile.id)
+
+              # dates separated out incase they don't exist
+              old_position.start_date != nil && old_position.start_date = Date.parse("1/#{guard(p.start_date).month ? guard(p.start_date).month : 1}/#{guard(p.start_date).year}")
+              old_position.end_date != nil &&  old_position.end_date = Date.parse("1/#{p.end_date.month ? p.end_date.month : 1}/#{p.end_date.year}")
+              old_position.save
           end
         end
         current_user.full_profile.positions
       end
 
-    else
-      positions
-    end
+    # else
+    #   positions
+    # end
   end
 
 
   def get_educations
     educations = Education.find_all_by_full_profile_id(current_user.full_profile.id)
-    if educations.empty?
+    # check whether there is currently any educations for the user
+    # if educations.empty?
       client = get_client
 
+      # check if the user has any educations on linkedin
+      if client.profile(:fields => [:educations]).educations.total == 0
+        educations
+      else
+        educations = client.profile(:fields => [:educations]).educations.all
+        educations.each do |e|
+          new_education = Education.new(
+            school_name: e.school_name,
+            field_of_study: e.field_of_study,
+            degree: e.degree,
+            activities: e.activities,
+            notes: e.notes,
+            full_profile_id: current_user.full_profile.id)
 
-      educations = client.profile(:fields => [:educations]).educations.all
-      educations.each do |e|
-        new_educations = Education.create(
-          school_name: e.school_name,
-          field_of_study: e.field_of_study,
-          start_date: Date.parse("1/#{e.end_date.month ? p.end_date.month : 1}/#{e.end_date.year}"),
-          end_date: Date.parse("1/#{e.end_date.month ? p.end_date.month : 1}/#{e.end_date.year}"),
-          degree: e.degree,
-          activities: e.activities,
-          notes: e.notes,
-          full_profile_id: current_user.full_profile.id)
+          # dates separated out incase don't exist
+          new_education.start_date != nil && new_education.start_date = Date.parse("1/#{e.end_date.month ? p.end_date.month : 1}/#{e.end_date.year}")
+          new_education.end_date != nil && new_education.end_date = Date.parse("1/#{e.end_date.month ? p.end_date.month : 1}/#{e.end_date.year}")
+            new_education.save
+        end
+        current_user.full_profile.educations
       end
-      current_user.full_profile.educations
-    else
-      educations
-    end
+
+    # else
+    #   educations
+    # end
   end
 
   def get_skills
     skills = Skill.find_all_by_full_profile_id(current_user.full_profile.id)
-    if skills.empty?
+    # if skills.empty?
       client = get_client
       if client.profile(:fields => [:skills]).empty?
         # add no skills
@@ -176,9 +193,9 @@ class LinkedinController < ApplicationController
         end
         current_user.full_profile.skills
       end
-    else
-      skills
-    end
+    # else
+    #   skills
+    # end
   end
 
   def create_mentor_profile
@@ -187,8 +204,7 @@ class LinkedinController < ApplicationController
     mentor_profile.save
   end
 
-  # helper
-
+  # helper to deal with incomplete linkedin data
   def guard(protect)
     if protect!=nil
       protect

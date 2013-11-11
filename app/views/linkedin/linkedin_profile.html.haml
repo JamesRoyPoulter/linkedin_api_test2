@@ -50,9 +50,10 @@
       .well
         %h5 Skills
         .makeopensans
-          - @skills.each do |s|
-            = s.skill
-            = ","
+          - if @skills != nil
+            - @skills.each do |s|
+              = s.skill
+              = ","
     .span6
       .well
         %h5 Interests

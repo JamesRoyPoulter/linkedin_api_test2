@@ -19,7 +19,7 @@ ga questions:
 15) stop thousands of searches
 20) remove all the started /get in the logs
 
-
+- need the app to update the data, once a week? at the moment, every time a user goes to their profile, it hits all the methods in the linkedin controller that go and fetch linkedin data. therefore, on first time, there is no data, so goes to linkedin to get it. currently set to do this every time. if i un-comment the if/else statement that speeds this up by only calling on the db locally, then it won't have to request linked in. however, need to be clever and make it do it once a week one way, then not any of the other times.
 
 
 
