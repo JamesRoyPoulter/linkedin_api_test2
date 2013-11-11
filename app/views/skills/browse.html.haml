@@ -4,13 +4,17 @@
 #browse_content
   %table.table
     %tr
-    %th.table_name= sort_link @q, :formatted_name, {}, :method => action_name == 'advanced_search' ? :post : :get
-    %th.table_company= sort_link @q, :company, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th.table_name= sort_link @q, :name, {}, :method => action_name == 'advanced_search' ? :post : :get
+    %th.table_company= sort_link @q, :company_name, {}, :method => action_name == 'advanced_search' ? :post : :get
     %th.table_skills= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
     - @users.each do |user|
       %tr
-        %td= link_to user.full_profile.user.basic_profile.formatted_name, user_path(user.id)
-        %td= user.full_profile.positions.first.company
         %td
+          %p.bold= link_to user.full_profile.user.basic_profile.formatted_name, user_path(user.id)
+          %p= user.number
+        %td
+          %p= user.full_profile.positions.first.company
+          %p= user.email
+        %td.better_font
           - user.full_profile.skills.each do |skill|
             = skill[:skill] + ','

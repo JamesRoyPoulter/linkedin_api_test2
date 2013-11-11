@@ -7,11 +7,8 @@ india questions:
 19) also with 18). but in the _shared
 
 me questions:
-3) ensure mentor/user split
-10) on clicking someone's name display the show profile page for that user
 11) one click add all people in warner yard
-13) add mobile and email to prof page view
-
+20) how delete fields that no longer exist on new page update
 
 ga questions:
 12) column sort

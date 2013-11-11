@@ -63,7 +63,7 @@ class LinkedinController < ApplicationController
 
   def get_basic_profile
     bprofile = BasicProfile.find_by_user_id(current_user.id)
-    if bprofile.nil?
+    # if bprofile.nil?
       client = get_client
       profile = client.profile(:fields => ["first-name", "last-name", "maiden-name", "formatted-name" ,:headline, :location, :industry, :summary, :specialties, "picture-url", "public-profile-url", "num-connections"])
 
@@ -73,14 +73,14 @@ class LinkedinController < ApplicationController
       new_basic_profile.user = current_user
       new_basic_profile.save
       new_basic_profile
-    else
-      bprofile
-    end
+    # else
+    #   bprofile
+    # end
   end
 
   def get_full_profile
     fprofile = FullProfile.find_by_user_id(current_user.id)
-    if fprofile.nil?
+    # if fprofile.nil?
       client = get_client
       full_profile = client.profile(:fields => [:associations, :honors, :interests])
       full_profile = full_profile.to_hash
@@ -88,9 +88,9 @@ class LinkedinController < ApplicationController
       new_full_profile.user = current_user
       new_full_profile.save
       new_full_profile
-    else
-      fprofile
-    end
+    # else
+    #   fprofile
+    # end
   end
 
   def get_positions

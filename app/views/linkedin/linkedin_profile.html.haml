@@ -5,7 +5,10 @@
         %h3= @basic_profile.formatted_name
         %h4= @basic_profile.headline
         %br
-          %p= 'Location: ' + @basic_profile.location
+          %p
+            .spacer.float_left= @basic_profile.location
+            .spacer.float_left= @basic_profile.user.email
+            .spacer= @basic_profile.user.number
           %p= @basic_profile.summary
 
 .row{:style => "margin-top: 16px;"}
