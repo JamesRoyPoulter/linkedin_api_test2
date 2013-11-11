@@ -12,6 +12,7 @@ RsgLinkedinGem::Application.routes.draw do
   match '/linkedin_oauth_url' => 'linkedin#generate_linkedin_oauth_url'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  resources :users
 
   root :to => 'linkedin#index'
 

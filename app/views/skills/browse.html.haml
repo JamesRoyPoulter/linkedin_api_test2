@@ -9,7 +9,7 @@
     %th.table_skills= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
     - @users.each do |user|
       %tr
-        %td= link_to user.full_profile.user.basic_profile.formatted_name, skills_path
+        %td= link_to user.full_profile.user.basic_profile.formatted_name, user_path(user.id)
         %td= user.full_profile.positions.first.company
         %td
           - user.full_profile.skills.each do |skill|

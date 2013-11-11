@@ -11,14 +11,14 @@ me questions:
 10) on clicking someone's name display the show profile page for that user
 11) one click add all people in warner yard
 13) add mobile and email to prof page view
-19) need to run rake tast to pull down linkedin info
-16) link to profile, need to link to individual user and pull all data associated with. dont do it through linkedin, do it through just accessing user. and filling fields basically. don't overcomplicate.
+
 
 ga questions:
 12) column sort
 15) stop thousands of searches
 20) remove all the started /get in the logs
 
+19) need to run rake tast to pull down linkedin info
 - need the app to update the data, once a week? at the moment, every time a user goes to their profile, it hits all the methods in the linkedin controller that go and fetch linkedin data. therefore, on first time, there is no data, so goes to linkedin to get it. currently set to do this every time. if i un-comment the if/else statement that speeds this up by only calling on the db locally, then it won't have to request linked in. however, need to be clever and make it do it once a week one way, then not any of the other times.
 
 

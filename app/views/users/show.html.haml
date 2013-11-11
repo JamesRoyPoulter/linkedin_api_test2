@@ -1,0 +1,68 @@
+.row
+  .span12
+    .thumbnail
+      %img{:src => @user.basic_profile.picture_url, :style => "float: left;margin: 5px;"}
+        %h3= @user.basic_profile.formatted_name
+        %h4= @user.basic_profile.headline
+        %br
+          %p= 'Location: ' + @user.basic_profile.location
+          %p= @user.basic_profile.summary
+
+.row{:style => "margin-top: 16px;"}
+  - if current_user.mentor_search==true
+    .span4
+      .well
+        %h5 Skills
+        .makeopensans
+          - @user.full_profile.skills.each do |s|
+            = s.skill
+            = ","
+    .span4
+      .well
+        %h5 Interests
+        %p= @user.full_profile.interests
+        %h5 Linkedin URL
+        %a.wordwrap_me= @user.basic_profile.public_profile_url
+        %br
+        %h5 Connections
+        %p
+          = @user.basic_profile.num_connections
+          - if @user.basic_profile.num_connections == 500
+            = '+'
+    .span4
+      .well
+        %h5 Mentor Stats
+        %table.table
+          %tr
+            %td Angelist followers:
+            %td
+              = current_user.mentor_profile.num_angelist_followers
+          %tr
+            %td Twitter followers:
+            %td
+              = current_user.mentor_profile.num_twitter_followers
+          %tr
+            %td Mentor ranking:
+            %td
+              = current_user.mentor_profile.mentor_ranking
+  - else
+    .span6
+      .well
+        %h5 Skills
+        .makeopensans
+          - if @user.full_profile.skills != nil
+            - @user.full_profile.skills.each do |s|
+              = s.skill
+              = ","
+    .span6
+      .well
+        %h5 Interests
+        %p= @user.full_profile.interests
+        %h5 Linkedin URL
+        %a.wordwrap_me= @user.basic_profile.public_profile_url
+        %br
+        %h5 Connections
+        %p
+          = @user.basic_profile.num_connections
+          - if @user.basic_profile.num_connections == 500
+            = '+'
