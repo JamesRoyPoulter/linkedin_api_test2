@@ -3,12 +3,11 @@ to tidy up:
 india questions:
 1) one linked in sign in
 5) add in linkedin access
-18)   <div><%= link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin_oauth2) %></div> from devise/reigstrations/new
-19) also with 18). but in the _shared
 
 me questions:
 11) one click add all people in warner yard
 20) how delete fields that no longer exist on new page update
+21) at the moment anyone can sign up.... ergh
 
 ga questions:
 12) column sort

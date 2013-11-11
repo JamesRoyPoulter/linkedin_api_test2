@@ -11,14 +11,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
   end
 
-  def passthru
-
-  end
-
-  def action_missing(provider)
-    # Set up authentication/authorizations here, and distribute tasks
-    # that are provider specific to other methods, leaving only tasks
-    # that work across all providers in this method.
-  end
-
 end

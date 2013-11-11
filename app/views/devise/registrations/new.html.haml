@@ -19,3 +19,6 @@
     = f.password_field :password_confirmation
   %div= f.submit "Sign up"
 = render "devise/shared/links"
+
+%div= link_to "Sign in with linkedin YOLO", user_omniauth_callback_path(:linkedin_oauth2)
+%div= link_to 'YOLOLO', '/users/auth/linkedin_oauth2'
