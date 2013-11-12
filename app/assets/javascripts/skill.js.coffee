@@ -26,3 +26,6 @@
 #     e.preventDefault()
 #     $("#form1").submit()
 #     # $("#form2").submit()
+
+
+# .toLowerCase()

@@ -7,7 +7,7 @@
   = search_form_for @q, url: search_skills_path, html: { method: :post } do |f|
     = f.label :skill_start
     .first_search_container
-      = f.text_field :skill_start
+      = f.text_field :skill_start.downcase
       = f.submit
 
 %input

@@ -9,7 +9,8 @@ me questions:
 20) how delete fields that no longer exist on new page update
 21) at the moment anyone can sign up.... ergh
 22) dependent: :Destroy
-23) advanced search
+23) layered search.
+24) search case insensitive
 
 ga questions:
 12) column sort

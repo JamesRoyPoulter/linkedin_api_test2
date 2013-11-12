@@ -64,3 +64,13 @@ footer {
 .start_hidden {
   // display: none;
 }
+
+input[name='commit'] {
+  position: absolute;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  padding: 4.5px 10px;
+  background-color: #373737;
+  color: white;
+}

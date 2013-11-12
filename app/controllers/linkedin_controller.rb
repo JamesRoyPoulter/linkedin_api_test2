@@ -188,7 +188,7 @@ class LinkedinController < ApplicationController
         skills = client.profile(:fields => [:skills]).skills.all
         skills.each do |s|
           new_skills = Skill.create(
-            skill: s.skill[:name],
+            skill: s.skill[:name].downcase,
             full_profile_id: current_user.full_profile.id)
         end
         current_user.full_profile.skills
