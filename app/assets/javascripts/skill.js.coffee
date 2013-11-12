@@ -20,3 +20,9 @@
 #     console.log('has html')
 # else
 #     console.log('has no html')
+
+
+# $(".button_submit").click (e)->
+#     e.preventDefault()
+#     $("#form1").submit()
+#     # $("#form2").submit()

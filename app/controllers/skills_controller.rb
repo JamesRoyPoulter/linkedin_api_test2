@@ -19,4 +19,9 @@ class SkillsController < ApplicationController
 
   end
 
+  def search
+    index
+    render :index
+  end
+
 end
