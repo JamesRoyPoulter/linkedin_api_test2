@@ -3,11 +3,7 @@ RsgLinkedinGem::Application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => 'users/omniauth_callbacks' }
   resources :users
 
-  resources :skills do
-    collection do
-      match 'search' => 'skills#search', via: [:get, :post], as: :search
-    end
-  end
+  resources :skills
   match '/browse' => 'skills#browse'
 
 

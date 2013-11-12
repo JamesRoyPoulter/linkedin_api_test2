@@ -18,19 +18,13 @@ class SkillsController < ApplicationController
     @skills = @q.result(:distinct => true)
     @skills.uniq! {|e| e[:full_profile_id] }
 
+
   end
 
   def browse
 
-    @users = User.all
-    @q = Skill.search(params[:q])
-    @skills = @q.result(:distinct => true)
+    @users = User.all.sort_by{|x| x.name}
 
-  end
-
-  def search
-    index
-    render :index
   end
 
 end

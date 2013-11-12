@@ -63,7 +63,7 @@ class LinkedinController < ApplicationController
 
   def get_basic_profile
     bprofile = BasicProfile.find_by_user_id(current_user.id)
-    # if bprofile.nil?
+    if bprofile.nil? || current_user.basic_profile.last_update<1.month.ago.to_date
       client = get_client
       profile = client.profile(:fields => ["first-name", "last-name", "maiden-name", "formatted-name" ,:headline, :location, :industry, :summary, :specialties, "picture-url", "public-profile-url", "num-connections"])
 
@@ -71,16 +71,17 @@ class LinkedinController < ApplicationController
       basic_profile[:location] = basic_profile["location"]["name"]
       new_basic_profile = BasicProfile.new(basic_profile)
       new_basic_profile.user = current_user
+      new_basic_profile.last_update=Date.today
       new_basic_profile.save
       new_basic_profile
-    # else
-    #   bprofile
-    # end
+    else
+      bprofile
+    end
   end
 
   def get_full_profile
     fprofile = FullProfile.find_by_user_id(current_user.id)
-    # if fprofile.nil?
+    if fprofile.nil? || current_user.basic_profile.last_update<1.month.ago.to_date
       client = get_client
       full_profile = client.profile(:fields => [:associations, :honors, :interests])
       full_profile = full_profile.to_hash
@@ -88,16 +89,17 @@ class LinkedinController < ApplicationController
       new_full_profile.user = current_user
       new_full_profile.save
       new_full_profile
-    # else
-    #   fprofile
-    # end
+    else
+      fprofile
+    end
   end
 
   def get_positions
     positions = Position.find_all_by_full_profile_id(current_user.full_profile.id)
 
     # check whether there is currently any positions for the user
-    # if positions.empty?
+    if positions.empty? || current_user.basic_profile.last_update<1.month.ago.to_date
+
       client = get_client
 
       # check if the user has any positions on linkedin
@@ -139,16 +141,17 @@ class LinkedinController < ApplicationController
         current_user.full_profile.positions
       end
 
-    # else
-    #   positions
-    # end
+    else
+      positions
+    end
   end
 
 
   def get_educations
     educations = Education.find_all_by_full_profile_id(current_user.full_profile.id)
     # check whether there is currently any educations for the user
-    # if educations.empty?
+    if educations.empty? || current_user.basic_profile.last_update<1.month.ago.to_date
+
       client = get_client
 
       # check if the user has any educations on linkedin
@@ -173,14 +176,14 @@ class LinkedinController < ApplicationController
         current_user.full_profile.educations
       end
 
-    # else
-    #   educations
-    # end
+    else
+      educations
+    end
   end
 
   def get_skills
     skills = Skill.find_all_by_full_profile_id(current_user.full_profile.id)
-    # if skills.empty?
+    if skills.empty? || current_user.basic_profile.last_update<1.month.ago.to_date
       client = get_client
       if client.profile(:fields => [:skills]).empty?
         # add no skills
@@ -193,9 +196,9 @@ class LinkedinController < ApplicationController
         end
         current_user.full_profile.skills
       end
-    # else
-    #   skills
-    # end
+    else
+      skills
+    end
   end
 
   def create_mentor_profile

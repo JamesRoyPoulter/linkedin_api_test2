@@ -4,14 +4,11 @@
 %br
 
 #search_content
-  = search_form_for @q, url: search_skills_path, html: { method: :post } do |f|
-    = f.label :skill_start
+  = search_form_for @q do |f|
+    = f.label :skill_start, 'Please enter a skill you wish to search for:'
     .first_search_container
-      = f.text_field :skill_start.downcase
-      = f.submit
-
-%input
-
+      = f.text_field :skill_start
+      = f.submit :id => "search_button"
 
   #search_results
     = render 'results'
