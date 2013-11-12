@@ -7,6 +7,7 @@ class SkillsController < ApplicationController
     @users = User.all
     @q = Skill.search(params[:q])
     @skills = @q.result(:distinct => true)
+    @skills.uniq! {|e| e[:full_profile_id] }
 
   end
 
