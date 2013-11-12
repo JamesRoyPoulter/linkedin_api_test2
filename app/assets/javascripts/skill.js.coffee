@@ -2,14 +2,21 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$('#browse_title').click ()->
-  $('#browse_content').show()
-  $('#search_content').hide()
 
-$('#search_title').click ()->
-  $('#search_content').show()
-  $('#browse_content').hide()
 
-$('#display_results').click ()->
-  $('search_results').show()
+# $('#display_results').click ()->
+  # $('search_results').show()
 
+# $('#display_results').click ()->
+  # $('.start_hidden').show()
+
+# $('.to_hide').hide() if false
+
+# $('.special_table tr').has('td.better_font td:first:empty').hide()
+
+# $('.EventDetail tr').has('td:empty').hide()
+
+# if $(".better_font").html()
+#     console.log('has html')
+# else
+#     console.log('has no html')
