@@ -7,7 +7,7 @@
       %th.table_skills= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
 
     %tbody
-      - @skills.sort_by{|x| x.full_profile.user.email}.each do |skill|
+      - @skills.sort_by{|x| x.full_profile.user.basic_profile.formatted_name}.each do |skill|
         %tr.to_hide
           %td
             %p.bold= link_to skill.full_profile.user.basic_profile.formatted_name, user_path(skill.full_profile.user.id)

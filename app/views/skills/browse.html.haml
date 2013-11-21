@@ -7,7 +7,7 @@
     %th.table_name= sort_link @q, :name, {}, :method => action_name == 'advanced_search' ? :post : :get
     %th.table_company= sort_link @q, :company_name, {}, :method => action_name == 'advanced_search' ? :post : :get
     %th.table_skills= sort_link @q, :skill, {}, :method => action_name == 'advanced_search' ? :post : :get
-    - @users.each do |user|
+    - @users.sort_by{|x| x.basic_profile.formatted_name}.each do |user|
       %tr
         %td
           %p.bold= link_to user.full_profile.user.basic_profile.formatted_name, user_path(user.id)

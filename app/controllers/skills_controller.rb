@@ -23,7 +23,7 @@ class SkillsController < ApplicationController
 
   def browse
 
-    @users = User.all.sort_by{|x| x.name}
+    @users = User.all
 
   end
 
