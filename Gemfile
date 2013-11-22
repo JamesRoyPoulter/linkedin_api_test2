@@ -14,8 +14,15 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-linkedin-oauth2'
 gem 'linkedin'
+gem 'omniauth-facebook'
 
 gem 'ransack'
+
+gem "temboo"
+# require "Library/Google"
+# require "Library/Factual"
+# require "Library/LinkedIn"
+# require "launchy"
 
 gem 'momentjs-rails'
 gem 'underscore-rails'
@@ -30,6 +37,10 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-stack_explorer'
+  gem 'guard'
+  gem 'guard-livereload', require: false
+  gem "rack-livereload"
+  gem 'rb-fsevent'
 end
 
 

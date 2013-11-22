@@ -6,6 +6,9 @@ RsgLinkedinGem::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
+  config.middleware.use Rack::LiveReload
+
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 

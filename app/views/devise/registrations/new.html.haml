@@ -18,7 +18,16 @@
     %br/
     = f.password_field :password_confirmation
   %div= f.submit "Sign up"
+
+%a.btn.btn-primary.btn-larg{:href => "/linkedin_oauth_url"} SignIn with Linkedin
+
+%br
+%br
+
 = render "devise/shared/links"
 
-%div= link_to "Sign in with linkedin YOLO", user_omniauth_callback_path(:linkedin_oauth2)
+%br
+
+%div= link_to "First linkedin test", user_omniauth_authorize_path(:facebook)
+%br
 %div= link_to 'YOLOLO', '/users/auth/linkedin_oauth2'
