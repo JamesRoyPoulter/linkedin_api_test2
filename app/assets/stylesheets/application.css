@@ -55,3 +55,18 @@ a.brand {
   font-size: 20px;
   font-family: Oswald, Open Sans, Helvetica;
 }
+
+a#linkedin_button {
+  color: white;
+  padding: 20px;
+}
+
+a#linkedin_button:hover {
+  text-decoration: none;
+  color: grey;
+  background-color: none;
+}
+
+.margin_button {
+  margin: 20px 10px  15px 10px !important;
+}

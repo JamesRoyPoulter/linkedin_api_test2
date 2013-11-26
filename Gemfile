@@ -19,10 +19,6 @@ gem 'omniauth-facebook'
 gem 'ransack'
 
 gem "temboo"
-# require "Library/Google"
-# require "Library/Factual"
-# require "Library/LinkedIn"
-# require "launchy"
 
 gem 'momentjs-rails'
 gem 'underscore-rails'

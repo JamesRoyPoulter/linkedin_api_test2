@@ -1,6 +1,8 @@
 defaults: &defaults
-  api_key: z7jq2f15zumw
-  secret_key: LOxanysGV6qs9qlJ
+  li_api_key: z7jq2f15zumw
+  li_secret_key: LOxanysGV6qs9qlJ
+  fb_api_key: 653757751324595
+  fb_secret_key: b3c0912288d91cfbea053010ed6364c6
 
 development:
   <<: *defaults

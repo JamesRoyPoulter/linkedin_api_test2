@@ -1,33 +1,28 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %div
-    = f.label :number_best_to_contact_you_on
-    %br/
-    = f.text_field :number
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
-
-%a.btn.btn-primary.btn-larg{:href => "/linkedin_oauth_url"} SignIn with Linkedin
-
-%br
-%br
-
-= render "devise/shared/links"
+/ %h2 Sign up
+/ = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+/   = devise_error_messages!
+/   %div
+/     = f.label :email
+/     %br/
+/     = f.email_field :email
+/   %div
+/     = f.label :number_best_to_contact_you_on
+/     %br/
+/     = f.text_field :number
+/   %div
+/     = f.label :password
+/     %br/
+/     = f.password_field :password
+/   %div
+/     = f.label :password_confirmation
+/     %br/
+/     = f.password_field :password_confirmation
+/   %div= f.submit "Sign up"
 
 %br
 
-%div= link_to "First linkedin test", user_omniauth_authorize_path(:facebook)
+/ = render "devise/shared/links"
+
+%div.btn.btn-primary.btn-larg=link_to "Login with LinkedIn", user_omniauth_authorize_path(:linkedin)
 %br
-%div= link_to 'YOLOLO', '/users/auth/linkedin_oauth2'
+%br

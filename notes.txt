@@ -1,4 +1,8 @@
-START: test rails console to see what the linkedin_oauth_setting contains. then use temboo to fill these fields. winning.
+START:
+
+
+get mobile number from linkedin
+remove signed out unless logged in
 
 
 to tidy up:
@@ -61,3 +65,8 @@ html_options = {:action => 'show', :id => current_user.id})
 
   end
 
+
+[1] pry(#<LinkedinController>)> atoken
+=> "a937743e-b9de-478b-bfe0-0483f36aab68"
+[2] pry(#<LinkedinController>)> asecret
+=> "464b2122-9715-43eb-8d43-2eff42b872da"
