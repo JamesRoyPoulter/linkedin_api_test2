@@ -10,6 +10,8 @@ gem 'newrelic_rpm'
 gem 'settingslogic'
 gem 'rails_12factor'
 
+gem 'redis'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-linkedin-oauth2'

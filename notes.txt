@@ -1,4 +1,5 @@
-START:
+START: just made redis take asecret and atoken remember, know who the user is due to their cookie in their browser. need to match with that across redis across both sites.  perhaps not the asecret and atoken i have currently done.  I would actually just put the site live, on the subdomain, new relic is pinging its ok, and then work on getting authentication plugin on wordpress, then work on linking them.
+
 
 
 get mobile number from linkedin
