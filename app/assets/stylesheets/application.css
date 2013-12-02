@@ -70,3 +70,29 @@ a#linkedin_button:hover {
 .margin_button {
   margin: 20px 10px  15px 10px !important;
 }
+
+.left_footer, .right_footer {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+ul.member {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Open Sans, Helvetica;
+  font-size: 15px;
+}
+
+.member li {
+  color: #99ddc4;
+  list-style-type: none;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+.member li a {
+  text-decoration: none;
+  color: #99ddc4;
+}
+

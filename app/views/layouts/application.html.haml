@@ -53,7 +53,16 @@
         / /row
       / /content
       %footer
-        %p &copy; Playfair Capital 2013
+        .left_footer
+          %p &copy; Playfair Capital 2013
+        .right_footer
+          %ul.member
+            MEMBERS
+            %li=link_to 'Bookings', :href => 'http://www.warneryard.com/book-meeting-room/'
+            %li=link_to 'Zipcar', :href => 'http://www.zipcar.com/warneryard/'
+            %li=link_to 'Pricing Plan', :href => 'http://www.warneryard.com/pricing-plan/'
+            %li=link_to 'Terms & Conditions', :href => 'http://www.warneryard.com/terms-conditions/'
+
     / /container
     /
       Javascripts

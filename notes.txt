@@ -3,6 +3,9 @@ START: just made redis take asecret and atoken remember, know who the user is du
 
 
 get mobile number from linkedin
+r_contactinfo
+https://developer.linkedin.com/documents/profile-fields
+
 remove signed out unless logged in
 
 
