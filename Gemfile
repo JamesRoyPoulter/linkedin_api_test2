@@ -20,7 +20,7 @@ gem 'omniauth-facebook'
 
 gem 'ransack'
 
-gem "temboo"
+# gem "temboo"
 
 gem 'momentjs-rails'
 gem 'underscore-rails'
