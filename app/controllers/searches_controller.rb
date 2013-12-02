@@ -4,7 +4,6 @@ class SearchesController < ApplicationController
   def index
     @searches = Search.all
     @users = User.all
-    # binding.pry
 
     @q = Skill.search(params[:q])
     @skills = @q.result(:distinct => true)
