@@ -214,7 +214,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    temboo (1.77)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -270,7 +269,6 @@ DEPENDENCIES
   redis
   sass-rails (~> 3.2.3)
   settingslogic
-  temboo
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
