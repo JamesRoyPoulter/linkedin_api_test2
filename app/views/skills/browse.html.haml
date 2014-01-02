@@ -10,7 +10,7 @@
     - @users.sort_by{|x| x.basic_profile.formatted_name}.each do |user|
       %tr
         %td
-          %p.bold= link_to user.full_profile.user.basic_profile.formatted_name, user_path(user.id)
+          %p.bold= link_to user.basic_profile.formatted_name, user_path(user.id)
           %p= user.number
         %td
           %p= user.full_profile.positions.first.company

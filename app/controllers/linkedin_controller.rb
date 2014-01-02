@@ -35,7 +35,7 @@ class LinkedinController < ApplicationController
     if pin
       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
       LinkedinOauthSetting.create!(:asecret => asecret, :atoken => atoken, :user_id => current_user.id)
-      send_to_redis(atoken, asecret)
+      # send_to_redis(atoken, asecret)
     end
     redirect_to "/"
   end
