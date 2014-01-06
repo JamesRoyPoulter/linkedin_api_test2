@@ -38,9 +38,10 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to image_tag('logo.png', :class => 'brand', :size => '180x180'),  root_path
+          = link_to image_tag('logo.png', :class => 'brand', :size => '180x180'), "http://warneryard.com"
           .container.nav-collapse
             %ul.nav.mynav
+              %li= link_to "Profile", user_path(current_user.id)
               %li= link_to "Search", skills_path
               %li= link_to "Browse", browse_path
               %li= link_to "Sign out", "/users/sign_out", :method => "DELETE"
