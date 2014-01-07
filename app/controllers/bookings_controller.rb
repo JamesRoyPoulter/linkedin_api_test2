@@ -4,45 +4,28 @@ class BookingsController < ApplicationController
   def book
     @bookings = Booking.all
 
+    @names = ['cookie', 'glass', 'monkey']
     @rooms = {'cookie'=> {}, 'glass' => {}, 'monkey'=>{}}
+    @slots = {'08:30-09:00'=> '', '09:00-09:30' => '', 'slot3'=>''}
 
-    @rooms.each do |x|
+    @names.each do |x|
       test = 0
       # push next 90 days into array
       while test <= 3
-        x[1][Date.today+test] = {}
-
-        # if booking = day then
-        #   if booking = slot then add to slot
+        # add dates and slots to rooms
+        @rooms[x][Date.today+test] = @slots
+        #  iterate through bookings
+        @bookings.each do |booking|
+          # if booking day equals current day in loop
+          if Date.today == Date.today+test then
+            # add existing bookings to slots
+            @rooms[x][Date.today+test][booking.slot] = booking.user.name
+          end
+        end
 
         test+=1
       end
     end
-
-
-    @room_data =
-    {
-      @rooms[0] =>
-      {
-        Date.today=>{"08:00"=>'user1', "08:30"=>'user2', "09:00"=>3},
-        Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
-        Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3}
-      },
-      'room2' =>
-      {
-        Date.today=>{"first slot"=>'user1', "second slot"=>'user2', "third slot"=>3},
-        Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
-        Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3}
-      },
-      'room3' =>
-      {
-        Date.today=>{"first slot"=>'user1', "second slot"=>'user2', "third slot"=>3},
-        Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
-        Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3}
-      }
-    }
-
-
   end
 
   def index
@@ -85,6 +68,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(params[:booking])
+    @booking.user = current_user
 
     respond_to do |format|
       if @booking.save

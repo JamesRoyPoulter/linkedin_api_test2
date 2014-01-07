@@ -5,13 +5,13 @@
   = @booking.user_id
 %p
   %b Booking slot:
-  = @booking.booking_slot
+  = @booking.slot
 %p
   %b Date:
   = @booking.date
 %p
   %b Other:
-  = @booking.other
+  = @booking.room
 
 = link_to 'Edit', edit_booking_path(@booking)
 \|
