@@ -11,18 +11,25 @@
 %p If available, click to book your slot!
 
 
-- @hash_test.each do |x|
+- @room_data.each do |x|
   %br
-  = 'This is the day'
+  = 'This is the room'
   %br
   = x[0]
   %br
   - x[1].each do |x|
     %br
-    = 'these are the slots'
+    = 'this is the day'
     %br
-    = x
+    = x[0]
     %br
+    - x[1].each do |x|
+      %br
+      = 'this is the slot'
+      %br
+      = x[0]
+      = x[1]
+      %br
 
 / # - @bookings_array.day.each do |x|
 / #   .day_slots_container

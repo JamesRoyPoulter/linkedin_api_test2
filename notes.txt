@@ -23,6 +23,9 @@ page will ahve to load as it updates ruby
 therefore give confirmation it works
 
 
+user <-> booking association
+
+
 LINKEDIN:
 
 get mobile number from linkedin

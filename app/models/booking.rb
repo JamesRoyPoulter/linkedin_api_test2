@@ -1,3 +1,6 @@
 class Booking < ActiveRecord::Base
-  attr_accessible :booking_slot, :date, :other, :user_id
+  attr_accessible :slot, :date, :room, :user_id
+
+  belongs_to :user
+
 end

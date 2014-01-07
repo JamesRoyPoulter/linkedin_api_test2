@@ -4,20 +4,42 @@ class BookingsController < ApplicationController
   def book
     @bookings = Booking.all
 
-    test = 0
-    @bookings_array =[]
+    @rooms = {'cookie'=> {}, 'glass' => {}, 'monkey'=>{}}
 
-    # push next 90 days into array
-    while test <= 60
-      @bookings_array << Date.today+test
-      test+=1
+    @rooms.each do |x|
+      test = 0
+      # push next 90 days into array
+      while test <= 3
+        x[1][Date.today+test] = {}
+
+        # if booking = day then
+        #   if booking = slot then add to slot
+
+        test+=1
+      end
     end
 
 
-    @hash_test = {
-      Date.today=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
-      Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
-      Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+    @room_data =
+    {
+      @rooms[0] =>
+      {
+        Date.today=>{"08:00"=>'user1', "08:30"=>'user2', "09:00"=>3},
+        Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+        Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3}
+      },
+      'room2' =>
+      {
+        Date.today=>{"first slot"=>'user1', "second slot"=>'user2', "third slot"=>3},
+        Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+        Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3}
+      },
+      'room3' =>
+      {
+        Date.today=>{"first slot"=>'user1', "second slot"=>'user2', "third slot"=>3},
+        Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+        Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3}
+      }
     }
 
 
