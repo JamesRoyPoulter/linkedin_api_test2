@@ -15,9 +15,9 @@ class BookingsController < ApplicationController
 
 
     @hash_test = {
-      Tue, 07 Jan 2014=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
-      Wed, 08 Jan 2014=>{},
-      Thu, 09 Jan 2014=>{}
+      Date.today=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+      Date.today+1=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+      Date.today+2=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
     }
 
 
