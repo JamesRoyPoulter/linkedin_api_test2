@@ -1,0 +1,41 @@
+#calendar {
+  width: 300px;
+  margin: 50px 20px;
+}
+
+.clndr-controls {
+  background-color: #69A776;
+  text-align: center;
+  height: 40px;
+}
+
+.clndr-control-button, .month {
+  width: 33%;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.header-days {
+  background-color: #97CE7F;
+  text-align: center;
+  height: 30px;
+}
+
+tbody tr {
+  height: 25px;
+}
+
+.day-contents {
+  background-color: #EBEBEB;
+    border-width: 1px;
+  border-color: white;
+  text-align: center;
+}
+
+.day {
+  border-width: 1px;
+  border-color: black;
+    &:hover {
+    color: #99DDC4;
+  }
+}

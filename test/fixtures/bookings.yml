@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  booking_slot: 1.5
+  date: MyString
+  other: MyString
+
+two:
+  user_id: 1
+  booking_slot: 1.5
+  date: MyString
+  other: MyString

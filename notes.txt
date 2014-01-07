@@ -1,6 +1,14 @@
-START: just made redis take asecret and atoken remember, know who the user is due to their cookie in their browser. need to match with that across redis across both sites.  perhaps not the asecret and atoken i have currently done.  I would actually just put the site live, on the subdomain, new relic is pinging its ok, and then work on getting authentication plugin on wordpress, then work on linking them.
+Calendar
 
-SORT OUT REDIS HEROKU LOAD
+booking has slot, day, room
+
+
+put all bookings to page
+put all bookings into each day
+put each day (+bookings) in a div
+on click of a day on a calendar, that day correspsonding div appears
+if spare slot, can click to book slot
+
 
 get mobile number from linkedin
 r_contactinfo

@@ -44,6 +44,7 @@
               %li= link_to "Profile", user_path(current_user.id)
               %li= link_to "Search", skills_path
               %li= link_to "Browse", browse_path
+              %li= link_to "Bookings", '/book'
               %li= link_to "Sign out", "/users/sign_out", :method => "DELETE"
           / /.nav-collapse
     .container

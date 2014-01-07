@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @booking.user_id
+%p
+  %b Booking slot:
+  = @booking.booking_slot
+%p
+  %b Date:
+  = @booking.date
+%p
+  %b Other:
+  = @booking.other
+
+= link_to 'Edit', edit_booking_path(@booking)
+\|
+= link_to 'Back', bookings_path
