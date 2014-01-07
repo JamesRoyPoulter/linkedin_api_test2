@@ -4,6 +4,23 @@ class BookingsController < ApplicationController
   def book
     @bookings = Booking.all
 
+    test = 0
+    @bookings_array =[]
+
+    # push next 90 days into array
+    while test <= 60
+      @bookings_array << Date.today+test
+      test+=1
+    end
+
+
+    @hash_test = {
+      Tue, 07 Jan 2014=>{"first slot"=>1, "second slot"=>2, "third slot"=>3},
+      Wed, 08 Jan 2014=>{},
+      Thu, 09 Jan 2014=>{}
+    }
+
+
   end
 
   def index

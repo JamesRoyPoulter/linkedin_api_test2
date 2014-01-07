@@ -10,5 +10,18 @@
 %p Step 3
 %p If available, click to book your slot!
 
-- @bookings.each do
-  yoda
+
+- @hash
+
+- @bookings_array.day.each do |x|
+  .day_slots_container
+
+ %table
+  %tr
+    %th Time
+    %th Available?
+
+  - @bookings_array.day.slot.each do |booking|
+    %tr
+      %td= slot.name
+      %td= slot.booking

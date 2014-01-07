@@ -1,14 +1,29 @@
-Calendar
+CALENDAR:
 
-booking has slot, day, room
+booking: has slot, day, room
+day: has bookings if match day. done in controller.
+day: has slots
+slots: has bookings if match day/slot
+
+put all bookings to page that are in the next 60 days
+- bookings.all where date = (date.now  < x > date.now+60days)
+
+put array onto page of next 60 date
+- @array = date.now and next 60
 
 
-put all bookings to page
 put all bookings into each day
+- if @booking.day
+
 put each day (+bookings) in a div
 on click of a day on a calendar, that day correspsonding div appears
 if spare slot, can click to book slot
 
+page will ahve to load as it updates ruby
+therefore give confirmation it works
+
+
+LINKEDIN:
 
 get mobile number from linkedin
 r_contactinfo
