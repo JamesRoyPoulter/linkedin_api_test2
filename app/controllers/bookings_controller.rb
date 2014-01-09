@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
             @rooms[x][Date.today+test][booking.slot] = booking.user.name
           end
         end
-
         test+=1
       end
     end
